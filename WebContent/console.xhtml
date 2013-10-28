@@ -10,10 +10,16 @@
 	<title>JVM Console</title>
 </h:head>
 <h:body>
-
-	<ace:panel header="JVM Console">
-		
-	</ace:panel>
-
+	<h:form id="console-form">
+		<ace:panel header="JVM Console">
+			<ace:dateTimeEntry id="dataTimeTest"
+				value="#{consoleViewModel.selectDateProperty}" pattern="MMM/dd/yyyy"
+				renderAsPopup="true">
+				<ace:ajax event="dateSelect"
+					listener="#{consoleViewModel.dateSelectListener}"
+					render="console-form"></ace:ajax>
+			</ace:dateTimeEntry>
+		</ace:panel>
+	</h:form>
 </h:body>
 </html>
