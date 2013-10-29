@@ -12,6 +12,8 @@
 <h:body>
 	<h:form id="console-form">
 		<ace:panel header="JVM Console">
+
+
 			<ace:dateTimeEntry id="dataTimeTest"
 				value="#{consoleViewModel.selectDateProperty}" pattern="MMM/dd/yyyy"
 				renderAsPopup="true">
@@ -19,6 +21,15 @@
 					listener="#{consoleViewModel.dateSelectListener}"
 					render="console-form"></ace:ajax>
 			</ace:dateTimeEntry>
+
+			<ace:chart id="chart" animated="false"
+				value="#{consoleViewModel.lineData}" stackSeries="false"
+				legend="true" legendPlacement="OUTSIDE_GRID"
+				xAxis="#{consoleViewModel.xAxis}" yAxes="#{consoleViewModel.yAxes}"
+				highlighter="true" highlighterLocation="N"
+				highlighterShowMarker="false" highlighterBringSeriesToFront="true"
+				widgetVar="barChart" />
+
 		</ace:panel>
 	</h:form>
 </h:body>
