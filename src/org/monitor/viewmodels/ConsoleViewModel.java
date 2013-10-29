@@ -34,61 +34,43 @@ public class ConsoleViewModel implements Serializable {
 
 	public static final String BEAN_NAME = "chartLineBean";
 
-	private List<CartesianSeries> lineData = new ArrayList<CartesianSeries>() {
-		{
-			add(new CartesianSeries() {
-				{
-					add("Nickle", 28);
-					add("Aluminum", 13);
-					add("Xenon", 54);
-					add("Silver", 47);
-					add("Sulfur", 16);
-					add("Silicon", 14);
-					add("Vanadium", 23);
-					setLabel("Resources / Demand");
-				}
-			});
-		}
-	};
-
-	private Axis[] yAxes = new Axis[] { new Axis() {
-		{
-			setAutoscale(true);
-			setTickInterval("5");
-			setLabel("Tonnes");
-		}
-	} };
-
-	private Axis xAxis = new Axis() {
-		{
-			setTicks(new String[] { "Nickle", "Aluminum", "Xenon", "Silver",
-					"Sulfur", "Silicon", "Vanadium" });
-			setType(AxisType.CATEGORY);
-		}
-	};
-
 	public List<CartesianSeries> getLineData() {
-		return lineData;
-	}
-
-	public void setLineData(List<CartesianSeries> lineData) {
-		this.lineData = lineData;
+		return new ArrayList<CartesianSeries>() {
+			{
+				add(new CartesianSeries() {
+					{
+						add("Nickle", 28);
+						add("Aluminum", 13);
+						add("Xenon", 54);
+						add("Silver", 47);
+						add("Sulfur", 16);
+						add("Silicon", 14);
+						add("Vanadium", 23);
+						setLabel("Time / Memory Space");
+					}
+				});
+			}
+		};
 	}
 
 	public Axis[] getyAxes() {
-		return yAxes;
-	}
-
-	public void setyAxes(Axis[] yAxes) {
-		this.yAxes = yAxes;
+		return new Axis[] { new Axis() {
+			{
+				setAutoscale(true);
+				setTickInterval("5");
+				setLabel("ms");
+			}
+		} };
 	}
 
 	public Axis getxAxis() {
-		return xAxis;
-	}
-
-	public void setxAxis(Axis xAxis) {
-		this.xAxis = xAxis;
+		return new Axis() {
+			{
+				setTicks(new String[] { "Nickle", "Aluminum", "Xenon",
+						"Silver", "Sulfur", "Silicon", "Vanadium" });
+				setType(AxisType.CATEGORY);
+			}
+		};
 	}
 
 	public Date getSelectDateProperty() {
