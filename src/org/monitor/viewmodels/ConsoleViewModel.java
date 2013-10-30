@@ -74,6 +74,7 @@ public class ConsoleViewModel implements Serializable {
 	}
 
 	public Date getSelectDateProperty() {
+		selectDateProperty = new Date(System.currentTimeMillis());
 		return selectDateProperty;
 	}
 
@@ -93,5 +94,4 @@ public class ConsoleViewModel implements Serializable {
 	public void setConsoleService(ConsoleService consoleService) {
 		this.consoleService = consoleService;
 	}
-
 }
