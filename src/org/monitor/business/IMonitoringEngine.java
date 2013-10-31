@@ -1,5 +1,7 @@
 package org.monitor.business;
 
+import java.io.Serializable;
+
 import org.monitor.models.JVMInstantStatusModel;
 
 /**
@@ -8,7 +10,7 @@ import org.monitor.models.JVMInstantStatusModel;
  * @author khalil.amdouni
  *
  */
-public interface IMonitoringEngine {
+public interface IMonitoringEngine extends Serializable {
 	
 	public JVMInstantStatusModel getJVMProcessStatus();
 }

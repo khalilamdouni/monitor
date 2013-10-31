@@ -1,19 +1,19 @@
 package org.monitor.viewmodels;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 
 import org.icefaces.ace.component.chart.Axis;
 import org.icefaces.ace.component.chart.AxisType;
 import org.icefaces.ace.event.DateSelectEvent;
 import org.icefaces.ace.model.chart.CartesianSeries;
-import org.monitor.services.impl.ConsoleService;
+import org.monitor.models.JVMStatusModel;
+import org.monitor.services.IConsoleService;
 
 /**
  * Managed Bean of the console view
@@ -22,35 +22,23 @@ import org.monitor.services.impl.ConsoleService;
  * 
  */
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class ConsoleViewModel implements Serializable {
 
 	private static final long serialVersionUID = -940411728774481761L;
 
 	@ManagedProperty(value = "#{consoleService}")
-	private ConsoleService consoleService;
+	private IConsoleService consoleService;
 
 	private Date selectDateProperty = new Date(System.currentTimeMillis());
 
 	public static final String BEAN_NAME = "chartLineBean";
 
+	private JVMStatusModel jvmStatusModel = new JVMStatusModel();
+	
 	public List<CartesianSeries> getLineData() {
-		return new ArrayList<CartesianSeries>() {
-			{
-				add(new CartesianSeries() {
-					{
-						add("Nickle", 28);
-						add("Aluminum", 13);
-						add("Xenon", 54);
-						add("Silver", 47);
-						add("Sulfur", 16);
-						add("Silicon", 14);
-						add("Vanadium", 23);
-						setLabel("Time / Memory Space");
-					}
-				});
-			}
-		};
+		consoleService.updateJVMStatus(jvmStatusModel);
+		return jvmStatusModel.getDatas();
 	}
 
 	public Axis[] getyAxes() {
@@ -58,7 +46,7 @@ public class ConsoleViewModel implements Serializable {
 			{
 				setAutoscale(true);
 				setTickInterval("5");
-				setLabel("ms");
+				setLabel("process");
 			}
 		} };
 	}
@@ -66,8 +54,7 @@ public class ConsoleViewModel implements Serializable {
 	public Axis getxAxis() {
 		return new Axis() {
 			{
-				setTicks(new String[] { "Nickle", "Aluminum", "Xenon",
-						"Silver", "Sulfur", "Silicon", "Vanadium" });
+				setTicks((String[])jvmStatusModel.getxAxis().toArray());
 				setType(AxisType.CATEGORY);
 			}
 		};
@@ -83,15 +70,24 @@ public class ConsoleViewModel implements Serializable {
 	}
 
 	public void dateSelectListener(DateSelectEvent event) {
-		consoleService.getJVMStatus();
+		consoleService.updateJVMStatus(jvmStatusModel);
 		setSelectDateProperty(event.getDate());
 	}
 
-	public ConsoleService getConsoleService() {
+	public IConsoleService getConsoleService() {
 		return consoleService;
 	}
 
-	public void setConsoleService(ConsoleService consoleService) {
+	public void setConsoleService(IConsoleService consoleService) {
 		this.consoleService = consoleService;
 	}
+
+	public JVMStatusModel getJvmStatusModel() {
+		return jvmStatusModel;
+	}
+
+	public void setJvmStatusModel(JVMStatusModel jvmStatusModel) {
+		this.jvmStatusModel = jvmStatusModel;
+	}
+	
 }

@@ -61,7 +61,7 @@
 	</mime-mapping>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/servicesContext.xml</param-value>
+		<param-value>/WEB-INF/servicesContext.xml;/WEB-INF/businessContext.xml</param-value>
 	</context-param>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

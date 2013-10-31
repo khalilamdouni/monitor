@@ -7,8 +7,6 @@
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
         
-    <bean id="consoleService" class="org.monitor.services.impl.ConsoleService">
-        <property name="monitoringEngine" ref="monitoringEngine"></property>
-    </bean>
+    <bean id="monitoringEngine" class="org.monitor.business.impl.MonitoringEngine"></bean>
 
 </beans>
