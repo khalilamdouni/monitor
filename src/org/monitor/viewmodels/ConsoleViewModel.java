@@ -52,9 +52,12 @@ public class ConsoleViewModel implements Serializable {
 	}
 
 	public Axis getxAxis() {
+		
 		return new Axis() {
 			{
-				setTicks((String[])jvmStatusModel.getxAxis().toArray());
+				String[] xAxis = new String[jvmStatusModel.getxAxis().size()];
+				xAxis = jvmStatusModel.getxAxis().toArray(xAxis);
+				setTicks(xAxis);
 				setType(AxisType.CATEGORY);
 			}
 		};
