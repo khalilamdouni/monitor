@@ -8,23 +8,32 @@ package org.monitor.models;
  */
 public class JVMInstantStatusModel {
 
-	private String x;
-	private double y;
+	private String time;
+	private double memory;
+	private long processNumber;
 
-	public String getX() {
-		return x;
+	public String getTime() {
+		return time;
 	}
 
-	public void setX(String x) {
-		this.x = x;
+	public void setTime(String time) {
+		this.time = time;
 	}
 
-	public double getY() {
-		return y;
+	public double getMemory() {
+		return memory;
 	}
 
-	public void setY(double y) {
-		this.y = y;
+	public void setMemory(double memory) {
+		this.memory = memory;
+	}
+
+	public long getProcessNumber() {
+		return processNumber;
+	}
+
+	public void setProcessNumber(long processNumber) {
+		this.processNumber = processNumber;
 	}
 
 }

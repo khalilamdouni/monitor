@@ -17,7 +17,8 @@ public class JVMStatusModel implements Serializable {
 	private static final long serialVersionUID = -1233344375679584590L;
 	private List<CartesianSeries> datas = new ArrayList<CartesianSeries>();
 	private List<String> xAxis = new ArrayList<String>();
-
+	private long processNumber;
+	
 	public List<CartesianSeries> getDatas() {
 		return datas;
 	}
@@ -32,6 +33,14 @@ public class JVMStatusModel implements Serializable {
 
 	public void setxAxis(List<String> xAxis) {
 		this.xAxis = xAxis;
+	}
+
+	public long getProcessNumber() {
+		return processNumber;
+	}
+
+	public void setProcessNumber(long processNumber) {
+		this.processNumber = processNumber;
 	}
 
 }

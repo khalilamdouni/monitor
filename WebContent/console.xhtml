@@ -20,7 +20,7 @@
 					listener="#{consoleViewModel.dateSelectListener}"
 					render="console-form"></ace:ajax>
 			</ace:dateTimeEntry>
-
+			<h:outputText value="#{consoleViewModel.processNumber}" ></h:outputText>
 			<ace:chart id="chart" animated="false"
 				value="#{consoleViewModel.lineData}" stackSeries="false"
 				legend="true" legendPlacement="OUTSIDE_GRID"

@@ -29,14 +29,16 @@ public class ConsoleService implements IConsoleService {
 			jvmStatusModel.getDatas().add(new CartesianSeries());
 		}
 		jvmStatusModel.getDatas().get(0)
-				.add(instantStatus.getX(), instantStatus.getY());
+				.add(instantStatus.getTime(), instantStatus.getMemory());
 		if (jvmStatusModel.getDatas().get(0).getData().size() > 10) {
 			jvmStatusModel.getDatas().get(0).getData().remove(0);
 		}
-		jvmStatusModel.getxAxis().add(instantStatus.getX());
+		jvmStatusModel.getxAxis().add(instantStatus.getTime());
 		if (jvmStatusModel.getxAxis().size() > 10) {
 			jvmStatusModel.getxAxis().remove(0);
 		}
+		
+		jvmStatusModel.setProcessNumber(instantStatus.getProcessNumber());
 		logger.info("Spring context is here :)");
 	}
 

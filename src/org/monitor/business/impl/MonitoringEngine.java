@@ -19,8 +19,10 @@ public class MonitoringEngine implements IMonitoringEngine {
 	@Override
 	public JVMInstantStatusModel getJVMProcessStatus() {
 		JVMInstantStatusModel jvmInstantStatusModel = new JVMInstantStatusModel();
-		jvmInstantStatusModel.setX(new Date().toString());
-		jvmInstantStatusModel.setY(ManagementFactory.getThreadMXBean()
+		jvmInstantStatusModel.setTime(new Date().toString());
+		jvmInstantStatusModel.setMemory(ManagementFactory.getThreadMXBean()
+				.getThreadCount());
+		jvmInstantStatusModel.setProcessNumber(ManagementFactory.getThreadMXBean()
 				.getThreadCount());
 		return jvmInstantStatusModel;
 	}

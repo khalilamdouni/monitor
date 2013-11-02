@@ -92,5 +92,9 @@ public class ConsoleViewModel implements Serializable {
 	public void setJvmStatusModel(JVMStatusModel jvmStatusModel) {
 		this.jvmStatusModel = jvmStatusModel;
 	}
-	
+
+	public long getProcessNumber() {
+		return jvmStatusModel.getProcessNumber();
+	}
+
 }
