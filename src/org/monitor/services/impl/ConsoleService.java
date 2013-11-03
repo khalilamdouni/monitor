@@ -24,7 +24,7 @@ public class ConsoleService implements IConsoleService {
 	public void updateJVMStatus(JVMStatusModel jvmStatusModel) {
 
 		JVMInstantStatusModel instantStatus = monitoringEngine
-				.getJVMProcessStatus();
+				.getJVMStatus();
 		if (jvmStatusModel.getDatas().size() == 0) {
 			jvmStatusModel.getDatas().add(new CartesianSeries());
 		}

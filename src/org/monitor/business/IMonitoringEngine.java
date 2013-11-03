@@ -12,5 +12,6 @@ import org.monitor.models.JVMInstantStatusModel;
  */
 public interface IMonitoringEngine extends Serializable {
 	
-	public JVMInstantStatusModel getJVMProcessStatus();
+	public JVMInstantStatusModel getJVMStatus();
+	public void launchGarbageCollector();
 }
