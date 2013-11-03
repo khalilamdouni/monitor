@@ -25,18 +25,54 @@ public class ConsoleService implements IConsoleService {
 
 		JVMInstantStatusModel instantStatus = monitoringEngine
 				.getJVMStatus();
-		if (jvmStatusModel.getDatas().size() == 0) {
-			jvmStatusModel.getDatas().add(new CartesianSeries());
-		}
-		jvmStatusModel.getDatas().get(0)
-				.add(instantStatus.getTime(), instantStatus.getMemory());
-		if (jvmStatusModel.getDatas().get(0).getData().size() > 10) {
-			jvmStatusModel.getDatas().get(0).getData().remove(0);
-		}
 		jvmStatusModel.getxAxis().add(instantStatus.getTime());
 		if (jvmStatusModel.getxAxis().size() > 10) {
 			jvmStatusModel.getxAxis().remove(0);
 		}
+		
+		
+		if (jvmStatusModel.getDatas().size() < 4) {
+			
+			CartesianSeries process = new CartesianSeries();
+			CartesianSeries heapUsage = new CartesianSeries();
+			CartesianSeries nonHeapUsage = new CartesianSeries();
+			CartesianSeries classCount = new CartesianSeries();
+			
+			jvmStatusModel.getDatas().add(process);
+			jvmStatusModel.getDatas().add(heapUsage);
+			jvmStatusModel.getDatas().add(nonHeapUsage);
+			jvmStatusModel.getDatas().add(classCount);
+		}
+		
+		jvmStatusModel.getDatas().get(0)
+				.add(instantStatus.getTime(), instantStatus.getProcessNumber());
+		jvmStatusModel.getDatas().get(0).setLabel("Process count");
+		if (jvmStatusModel.getDatas().get(0).getData().size() > 10) {
+			jvmStatusModel.getDatas().get(0).getData().remove(0);
+		}
+
+		jvmStatusModel.getDatas().get(1)
+				.add(instantStatus.getTime(), instantStatus.getHeapUsage());
+		jvmStatusModel.getDatas().get(1).setLabel("Heap Usage");
+		if (jvmStatusModel.getDatas().get(1).getData().size() > 10) {
+			jvmStatusModel.getDatas().get(1).getData().remove(0);
+		}
+		
+		jvmStatusModel.getDatas().get(2)
+				.add(instantStatus.getTime(), instantStatus.getNonHeapUsage());
+		jvmStatusModel.getDatas().get(2).setLabel("Non Heap Usage");
+		if (jvmStatusModel.getDatas().get(2).getData().size() > 10) {
+			jvmStatusModel.getDatas().get(2).getData().remove(0);
+		}
+		
+		jvmStatusModel.getDatas().get(3)
+				.add(instantStatus.getTime(), instantStatus.getClassesCount());
+		jvmStatusModel.getDatas().get(3).setLabel("Class Count");
+		if (jvmStatusModel.getDatas().get(3).getData().size() > 10) {
+			jvmStatusModel.getDatas().get(3).getData().remove(0);
+		}
+
+
 		
 		jvmStatusModel.setProcessNumber(instantStatus.getProcessNumber());
 		logger.info("Spring context is here :)");

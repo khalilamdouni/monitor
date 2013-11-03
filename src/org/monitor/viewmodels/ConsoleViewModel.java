@@ -10,7 +10,6 @@ import javax.faces.bean.SessionScoped;
 
 import org.icefaces.ace.component.chart.Axis;
 import org.icefaces.ace.component.chart.AxisType;
-import org.icefaces.ace.event.DateSelectEvent;
 import org.icefaces.ace.model.chart.CartesianSeries;
 import org.monitor.models.JVMStatusModel;
 import org.monitor.services.IConsoleService;
@@ -43,6 +42,24 @@ public class ConsoleViewModel implements Serializable {
 				setAutoscale(true);
 				setTickInterval("5");
 				setLabel("process");
+			}
+		}, new Axis() {
+			{
+				setAutoscale(true);
+				setTickInterval("100000000");
+				setLabel("heap usage");
+			}
+		}, new Axis() {
+			{
+				setAutoscale(true);
+				setTickInterval("10000000");
+				setLabel("non heap usage");
+			}
+		}, new Axis() {
+			{
+				setAutoscale(true);
+				setTickInterval("500");
+				setLabel("class count");
 			}
 		} };
 	}
