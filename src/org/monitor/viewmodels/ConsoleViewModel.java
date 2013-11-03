@@ -29,11 +29,7 @@ public class ConsoleViewModel implements Serializable {
 
 	@ManagedProperty(value = "#{consoleService}")
 	private IConsoleService consoleService;
-
-	private Date selectDateProperty = new Date(System.currentTimeMillis());
-
-	public static final String BEAN_NAME = "chartLineBean";
-
+	
 	private JVMStatusModel jvmStatusModel = new JVMStatusModel();
 	
 	public List<CartesianSeries> getLineData() {
@@ -63,20 +59,6 @@ public class ConsoleViewModel implements Serializable {
 		};
 	}
 
-	public Date getSelectDateProperty() {
-		selectDateProperty = new Date(System.currentTimeMillis());
-		return selectDateProperty;
-	}
-
-	public void setSelectDateProperty(Date selectDateProperty) {
-		this.selectDateProperty = selectDateProperty;
-	}
-
-	public void dateSelectListener(DateSelectEvent event) {
-		consoleService.updateJVMStatus(jvmStatusModel);
-		setSelectDateProperty(event.getDate());
-	}
-
 	public IConsoleService getConsoleService() {
 		return consoleService;
 	}
@@ -95,6 +77,10 @@ public class ConsoleViewModel implements Serializable {
 
 	public long getProcessNumber() {
 		return jvmStatusModel.getProcessNumber();
+	}
+	
+	public Date getServerDate() {
+		return new Date(System.currentTimeMillis());
 	}
 
 }
