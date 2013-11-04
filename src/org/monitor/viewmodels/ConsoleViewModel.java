@@ -31,31 +31,58 @@ public class ConsoleViewModel implements Serializable {
 	
 	private JVMStatusModel jvmStatusModel = new JVMStatusModel();
 	
-	public List<CartesianSeries> getLineData() {
+	public List<CartesianSeries> getProcessLineData() {
 		consoleService.updateJVMStatus(jvmStatusModel);
-		return jvmStatusModel.getDatas();
+		return jvmStatusModel.getProcessDatas();
+	}
+	
+	public List<CartesianSeries> getHeapUsageLineData() {
+		consoleService.updateJVMStatus(jvmStatusModel);
+		return jvmStatusModel.getHeapUsageDatas();
+	}
+	
+	public List<CartesianSeries> getNonHeapUsageLineData() {
+		consoleService.updateJVMStatus(jvmStatusModel);
+		return jvmStatusModel.getNonHeapUsageDatas();
+	}
+	
+	public List<CartesianSeries> getClassCountLineData() {
+		consoleService.updateJVMStatus(jvmStatusModel);
+		return jvmStatusModel.getClassCountDatas();
 	}
 
-	public Axis[] getyAxes() {
+	public Axis[] getyProcessAxes() {
 		return new Axis[] { new Axis() {
 			{
 				setAutoscale(true);
 				setTickInterval("5");
 				setLabel("process");
 			}
-		}, new Axis() {
+		} };
+	}
+
+	public Axis[] getyHeapUsageAxes() {
+		return new Axis[] { new Axis() {
 			{
 				setAutoscale(true);
 				setTickInterval("100000000");
-				setLabel("heap usage");
+				setLabel("Heap usage");
 			}
-		}, new Axis() {
+		} };
+	}
+
+	public Axis[] getyNonHeapUsageAxes() {
+		return new Axis[] { new Axis() {
 			{
 				setAutoscale(true);
 				setTickInterval("10000000");
 				setLabel("non heap usage");
 			}
-		}, new Axis() {
+		} };
+	}
+
+	public Axis[] getyClassCountAxes() {
+		return new Axis[] { new Axis() {
 			{
 				setAutoscale(true);
 				setTickInterval("500");
@@ -63,6 +90,7 @@ public class ConsoleViewModel implements Serializable {
 			}
 		} };
 	}
+
 
 	public Axis getxAxis() {
 		

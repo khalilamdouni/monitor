@@ -20,10 +20,10 @@
 			<ace:tabSet>
 				<ace:tabPane id="procesChartPanel" label="Process">
 					<ace:chart id="procesChart" animated="false"
-						value="#{consoleViewModel.lineData}" stackSeries="false"
+						value="#{consoleViewModel.processLineData}" stackSeries="false"
 						legend="true" legendPlacement="OUTSIDE_GRID"
 						xAxis="#{consoleViewModel.xAxis}"
-						yAxes="#{consoleViewModel.yAxes}" highlighter="true"
+						yAxes="#{consoleViewModel.yProcessAxes}" highlighter="true"
 						highlighterLocation="N" highlighterShowMarker="false"
 						highlighterBringSeriesToFront="true" widgetVar="barChart">
 						<icecore:refresh interval="1" />
@@ -31,10 +31,10 @@
 				</ace:tabPane>
 				<ace:tabPane id="heapUsageChartPanel" label="Heap usage">
 					<ace:chart id="heapUsageChart" animated="false"
-						value="#{consoleViewModel.lineData}" stackSeries="false"
+						value="#{consoleViewModel.heapUsageLineData}" stackSeries="false"
 						legend="true" legendPlacement="OUTSIDE_GRID"
 						xAxis="#{consoleViewModel.xAxis}"
-						yAxes="#{consoleViewModel.yAxes}" highlighter="true"
+						yAxes="#{consoleViewModel.yHeapUsageAxes}" highlighter="true"
 						highlighterLocation="N" highlighterShowMarker="false"
 						highlighterBringSeriesToFront="true" widgetVar="barChart">
 						<icecore:refresh interval="1" />
@@ -42,10 +42,10 @@
 				</ace:tabPane>
 				<ace:tabPane id="nonHeapUsageChartPanel" label="Non heap usage">
 					<ace:chart id="nonHeapUsageChart" animated="false"
-						value="#{consoleViewModel.lineData}" stackSeries="false"
+						value="#{consoleViewModel.nonHeapUsageLineData}" stackSeries="false"
 						legend="true" legendPlacement="OUTSIDE_GRID"
 						xAxis="#{consoleViewModel.xAxis}"
-						yAxes="#{consoleViewModel.yAxes}" highlighter="true"
+						yAxes="#{consoleViewModel.yNonHeapUsageAxes}" highlighter="true"
 						highlighterLocation="N" highlighterShowMarker="false"
 						highlighterBringSeriesToFront="true" widgetVar="barChart">
 						<icecore:refresh interval="1" />
@@ -53,10 +53,10 @@
 				</ace:tabPane>
 				<ace:tabPane id="classCountChartPanel" label="Class count">
 					<ace:chart id="classCountChart" animated="false"
-						value="#{consoleViewModel.lineData}" stackSeries="false"
+						value="#{consoleViewModel.classCountLineData}" stackSeries="false"
 						legend="true" legendPlacement="OUTSIDE_GRID"
 						xAxis="#{consoleViewModel.xAxis}"
-						yAxes="#{consoleViewModel.yAxes}" highlighter="true"
+						yAxes="#{consoleViewModel.yClassCountAxes}" highlighter="true"
 						highlighterLocation="N" highlighterShowMarker="false"
 						highlighterBringSeriesToFront="true" widgetVar="barChart">
 						<icecore:refresh interval="1" />
