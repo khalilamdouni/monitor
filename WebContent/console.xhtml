@@ -12,20 +12,57 @@
 <h:body>
 	<h:form id="console-form">
 		<ace:panel header="JVM Console">
-			<icecore:refresh interval="1"/>
 			<h:outputLabel for="server-date" value="Server Date"></h:outputLabel>
-			<h:outputText id="server-date" value="#{consoleViewModel.serverDate}" ></h:outputText>
+			<h:outputText id="server-date" value="#{consoleViewModel.serverDate}"></h:outputText>
 			<h:outputLabel for="process-number" value="Process Number"></h:outputLabel>
-			<h:outputText id="process-number" value="#{consoleViewModel.processNumber}" ></h:outputText>
-			
-			<ace:chart id="chart" animated="false"
-				value="#{consoleViewModel.lineData}" stackSeries="false"
-				legend="true" legendPlacement="OUTSIDE_GRID"
-				xAxis="#{consoleViewModel.xAxis}" yAxes="#{consoleViewModel.yAxes}"
-				highlighter="true" highlighterLocation="N"
-				highlighterShowMarker="false" highlighterBringSeriesToFront="true"
-				widgetVar="barChart" />
-
+			<h:outputText id="process-number"
+				value="#{consoleViewModel.processNumber}"></h:outputText>
+			<ace:tabSet>
+				<ace:tabPane id="procesChartPanel" label="Process">
+					<ace:chart id="procesChart" animated="false"
+						value="#{consoleViewModel.lineData}" stackSeries="false"
+						legend="true" legendPlacement="OUTSIDE_GRID"
+						xAxis="#{consoleViewModel.xAxis}"
+						yAxes="#{consoleViewModel.yAxes}" highlighter="true"
+						highlighterLocation="N" highlighterShowMarker="false"
+						highlighterBringSeriesToFront="true" widgetVar="barChart">
+						<icecore:refresh interval="1" />
+					</ace:chart>
+				</ace:tabPane>
+				<ace:tabPane id="heapUsageChartPanel" label="Heap usage">
+					<ace:chart id="heapUsageChart" animated="false"
+						value="#{consoleViewModel.lineData}" stackSeries="false"
+						legend="true" legendPlacement="OUTSIDE_GRID"
+						xAxis="#{consoleViewModel.xAxis}"
+						yAxes="#{consoleViewModel.yAxes}" highlighter="true"
+						highlighterLocation="N" highlighterShowMarker="false"
+						highlighterBringSeriesToFront="true" widgetVar="barChart">
+						<icecore:refresh interval="1" />
+					</ace:chart>
+				</ace:tabPane>
+				<ace:tabPane id="nonHeapUsageChartPanel" label="Non heap usage">
+					<ace:chart id="nonHeapUsageChart" animated="false"
+						value="#{consoleViewModel.lineData}" stackSeries="false"
+						legend="true" legendPlacement="OUTSIDE_GRID"
+						xAxis="#{consoleViewModel.xAxis}"
+						yAxes="#{consoleViewModel.yAxes}" highlighter="true"
+						highlighterLocation="N" highlighterShowMarker="false"
+						highlighterBringSeriesToFront="true" widgetVar="barChart">
+						<icecore:refresh interval="1" />
+					</ace:chart>
+				</ace:tabPane>
+				<ace:tabPane id="classCountChartPanel" label="Class count">
+					<ace:chart id="classCountChart" animated="false"
+						value="#{consoleViewModel.lineData}" stackSeries="false"
+						legend="true" legendPlacement="OUTSIDE_GRID"
+						xAxis="#{consoleViewModel.xAxis}"
+						yAxes="#{consoleViewModel.yAxes}" highlighter="true"
+						highlighterLocation="N" highlighterShowMarker="false"
+						highlighterBringSeriesToFront="true" widgetVar="barChart">
+						<icecore:refresh interval="1" />
+					</ace:chart>
+				</ace:tabPane>
+			</ace:tabSet>
 		</ace:panel>
 	</h:form>
 </h:body>
