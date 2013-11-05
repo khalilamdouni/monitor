@@ -13,4 +13,5 @@ import org.monitor.models.JVMStatusModel;
 public interface IConsoleService extends Serializable {
 
 	public void updateJVMStatus(JVMStatusModel jvmStatusModel);
+	public void launchGarbageCollector();
 }

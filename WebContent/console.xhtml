@@ -17,6 +17,8 @@
 			<h:outputLabel for="process-number" value="Process Number"></h:outputLabel>
 			<h:outputText id="process-number"
 				value="#{consoleViewModel.processNumber}"></h:outputText>
+			<ace:pushButton id="clean-mem" value="Launch Garbage Collector"
+				actionListener="#{consoleViewModel.launchGarbageCollector}"></ace:pushButton>
 			<ace:tabSet>
 				<ace:tabPane id="procesChartPanel" label="Process">
 					<ace:chart id="procesChart" animated="false"
@@ -42,8 +44,8 @@
 				</ace:tabPane>
 				<ace:tabPane id="nonHeapUsageChartPanel" label="Non heap usage">
 					<ace:chart id="nonHeapUsageChart" animated="false"
-						value="#{consoleViewModel.nonHeapUsageLineData}" stackSeries="false"
-						legend="true" legendPlacement="OUTSIDE_GRID"
+						value="#{consoleViewModel.nonHeapUsageLineData}"
+						stackSeries="false" legend="true" legendPlacement="OUTSIDE_GRID"
 						xAxis="#{consoleViewModel.xAxis}"
 						yAxes="#{consoleViewModel.yNonHeapUsageAxes}" highlighter="true"
 						highlighterLocation="N" highlighterShowMarker="false"

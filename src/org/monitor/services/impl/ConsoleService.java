@@ -79,4 +79,9 @@ public class ConsoleService implements IConsoleService {
 	public void setMonitoringEngine(IMonitoringEngine monitoringEngine) {
 		this.monitoringEngine = monitoringEngine;
 	}
+
+	@Override
+	public void launchGarbageCollector() {
+		monitoringEngine.launchGarbageCollector();
+	}
 }

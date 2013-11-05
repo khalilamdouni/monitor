@@ -7,6 +7,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.ActionEvent;
 
 import org.icefaces.ace.component.chart.Axis;
 import org.icefaces.ace.component.chart.AxisType;
@@ -30,6 +31,10 @@ public class ConsoleViewModel implements Serializable {
 	private IConsoleService consoleService;
 	
 	private JVMStatusModel jvmStatusModel = new JVMStatusModel();
+	
+	public void launchGarbageCollector(ActionEvent event) {
+		consoleService.launchGarbageCollector();
+	}
 	
 	public List<CartesianSeries> getProcessLineData() {
 		consoleService.updateJVMStatus(jvmStatusModel);
