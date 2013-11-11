@@ -18,7 +18,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "IS_DEPARTMENT")
-public class Department {
+public class Department extends AbstractModel {
 
 	@Id
 	@Column(name = "ID")

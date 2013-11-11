@@ -20,7 +20,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "IS_APPLICAION")
-public class Application {
+public class Application extends AbstractModel {
 	
 	@Id
 	@Column(name = "ID")

@@ -16,7 +16,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "IS_SERVER")
-public class Server {
+public class Server extends AbstractModel {
 
 	@Id
 	@Column(name = "ID")
