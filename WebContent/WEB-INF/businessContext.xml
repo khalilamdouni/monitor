@@ -6,7 +6,15 @@
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-        
-    <bean id="monitoringEngine" class="org.monitor.business.impl.MonitoringEngine"></bean>
 
+	<bean id="monitoringEngine" class="org.monitor.business.impl.MonitoringEngine"></bean>
+	<bean id="departmentManager" class="org.monitor.business.impl.DepartmentManager">
+		<property name="departmentDao" ref="departmentDao"></property>
+	</bean>
+	<bean id="applicationManager" class="org.monitor.business.impl.ApplicationManager">
+		<property name="applicationDao" ref="applicationDao"></property>
+	</bean>
+	<bean id="serverManager" class="org.monitor.business.impl.ServerManager">
+		<property name="serverDao" ref="serverDao"></property>
+	</bean>
 </beans>
