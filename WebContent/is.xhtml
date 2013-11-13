@@ -10,8 +10,39 @@
 	<title>IS Manager</title>
 </h:head>
 <h:body>
-	<h:form id="is-manager-form">
-		
-	</h:form>
+
+
+	<center>
+		<h:commandButton id="show-add-dep" value="Add Department"
+			onclick="depDialog.show();" type="button" />
+	</center>
+
+	<ace:dialog id="dialog" header="A sample dialog overview example"
+		widgetVar="depDialog" closable="true" modal="true" draggable="true"
+		showEffect="clip" hideEffect="fade" width="400">
+
+		<h:form id="add-dep-form">
+			<icecore:singleSubmit></icecore:singleSubmit>
+			<h:panelGrid columns="2" width="100%">
+				<h:outputLabel id="nameLabel" for="nameField"
+					value="Department Name:" />
+				<h:inputText id="nameField" value="#{departmentMB.name}" />
+
+				<h:outputLabel id="descriptionLabel" for="lastNameInputField"
+					value="Last Name:" />
+				<h:inputTextarea id="descriptionField"
+					value="#{dialogBean.lastName}" />
+			</h:panelGrid>
+
+			<h:panelGrid width="100%" style="text-align: center;">
+				<h:commandButton id="submit" value="Save Department"
+					actionListener="#{departmentMB.save}" onclick="depDialog.hide();" />
+			</h:panelGrid>
+
+		</h:form>
+
+	</ace:dialog>
+
+
 </h:body>
 </html>
