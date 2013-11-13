@@ -1,12 +1,13 @@
 package org.monitor.viewmodels;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 
-import org.monitor.business.IDepartmentManager;
 import org.monitor.models.Department;
+import org.monitor.services.IISService;
 
 /**
  * Managed bean of the Department management view
@@ -18,11 +19,16 @@ import org.monitor.models.Department;
 @ViewScoped
 public class DepartmentMB {
 
-	@ManagedProperty(value = "#{consoleService}")
-	private IDepartmentManager departmentManager;
+	@ManagedProperty(value = "#{isService}")
+	private IISService isService;
 	
 	private Department department;
 
+	@PostConstruct
+	private void init() {
+		department = new Department();
+	}
+	
 	public long getId() {
 		return department.getId();
 	}
@@ -47,14 +53,6 @@ public class DepartmentMB {
 		department.setDescription(description);
 	}
 
-	public IDepartmentManager getDepartmentManager() {
-		return departmentManager;
-	}
-
-	public void setDepartmentManager(IDepartmentManager departmentManager) {
-		this.departmentManager = departmentManager;
-	}
-
 	public Department getDepartment() {
 		return department;
 	}
@@ -64,7 +62,15 @@ public class DepartmentMB {
 	}
 	
 	public void save(ActionEvent event) {
-		departmentManager.save(department);
+		isService.saveDepartment(department);
+	}
+
+	public IISService getIsService() {
+		return isService;
+	}
+
+	public void setIsService(IISService isService) {
+		this.isService = isService;
 	}
 
 }

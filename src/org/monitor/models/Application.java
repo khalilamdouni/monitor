@@ -21,7 +21,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "IS_APPLICAION")
+@Table(name = "IS_APPLICATION")
 @NamedQueries({
 	@NamedQuery(name = "Application.getApplicationByDept", query = "SELECT a FROM Application a WHERE department.id=:deptId")
 })

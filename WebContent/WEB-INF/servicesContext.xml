@@ -10,5 +10,8 @@
     <bean id="consoleService" class="org.monitor.services.impl.ConsoleService">
         <property name="monitoringEngine" ref="monitoringEngine"></property>
     </bean>
+    <bean id="isService" class="org.monitor.services.impl.ISService">
+        <property name="departmentManager" ref="departmentManager"></property>
+    </bean>
 
 </beans>
