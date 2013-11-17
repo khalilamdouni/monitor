@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:icecore="http://www.icefaces.org/icefaces/core"
 	xmlns:ace="http://www.icefaces.org/icefaces/components">
@@ -11,7 +12,44 @@
 </h:head>
 <h:body>
 
-	<h:form>
+	<h:form id="form">
+
+		<ace:dataTable id="deps" value="#{iSMB.departments}" var="department">
+			<ace:ajax event="editSubmit" render="facesMsgs" />
+			<ace:column id="id-dep" headerText="ID">
+				<ace:cellEditor>
+					<f:facet name="output">
+						<h:outputText id="idDep" value="#{department.id}" />
+					</f:facet>
+				</ace:cellEditor>
+			</ace:column>
+			<ace:column id="name-dep" headerText="Name">
+				<ace:cellEditor>
+					<f:facet name="output">
+						<h:outputText id="nameDepOutput" value="#{department.name}" />
+					</f:facet>
+					<f:facet name="input">
+						<h:inputText id="nameDepInput" value="#{department.name}" />
+					</f:facet>
+				</ace:cellEditor>
+			</ace:column>
+			<ace:column id="dep-description" headerText="Description">
+				<ace:cellEditor>
+					<f:facet name="output">
+						<h:outputText id="descriptionDepOutput"
+							value="#{department.description}" />
+					</f:facet>
+					<f:facet name="input">
+						<h:inputText id="descriptionDepInput"
+							value="#{department.description}" />
+					</f:facet>
+				</ace:cellEditor>
+			</ace:column>
+			<ace:column id="options" headerText="Options">
+				<ace:rowEditor id="editor" />
+			</ace:column>
+		</ace:dataTable>
+
 		<center>
 			<h:commandButton id="show-add-dep" value="Add Department"
 				onclick="depDialog.show();" type="button" />
@@ -40,7 +78,6 @@
 				</h:panelGrid>
 
 			</h:form>
-
 		</ace:dialog>
 
 	</h:form>
