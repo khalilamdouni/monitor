@@ -16,6 +16,7 @@ import org.monitor.models.Application;
 public class ApplicationManager extends GenericManager<Application> implements
 		IApplicationManager {
 
+	private static final long serialVersionUID = 1773144579357623702L;
 	private IApplicationDao applicationDao;
 	
 	@Override

@@ -25,6 +25,8 @@ import javax.persistence.Table;
 })
 public class Department extends AbstractModel {
 
+	private static final long serialVersionUID = 8705824703614188424L;
+
 	@Id
 	@Column(name = "ID")
 	private long id;

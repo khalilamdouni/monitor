@@ -16,6 +16,8 @@ import org.monitor.models.Department;
 public class DepartmentDao extends GenericDao<Department> implements
 		IDepartmentDao {
 
+	private static final long serialVersionUID = 8683167993218834229L;
+
 	public DepartmentDao() {
 		super(Department.class);
 	}

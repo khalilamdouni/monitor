@@ -16,6 +16,8 @@ import org.monitor.models.Application;
 public class ApplicationDao extends GenericDao<Application> implements
 		IApplicationDao {
 
+	private static final long serialVersionUID = 7501938990500081935L;
+
 	public ApplicationDao() {
 		super(Application.class);
 	}

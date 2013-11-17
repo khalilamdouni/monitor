@@ -19,6 +19,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class GenericDao<T> implements IGenericDao<T> {
 
+	private static final long serialVersionUID = 2096240021651672556L;
+
 	@PersistenceContext
 	protected EntityManager em;
 

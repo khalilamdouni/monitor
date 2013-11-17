@@ -15,6 +15,8 @@ import org.monitor.models.Server;
  */
 public class ServerDao extends GenericDao<Server> implements IServerDao {
 
+	private static final long serialVersionUID = -3676442020900088936L;
+
 	public ServerDao() {
 		super(Server.class);
 	}

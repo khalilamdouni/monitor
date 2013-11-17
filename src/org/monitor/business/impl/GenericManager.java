@@ -11,6 +11,8 @@ import org.monitor.business.IGenericManager;
  */
 public abstract class GenericManager<T> implements IGenericManager<T> {
 
+	private static final long serialVersionUID = 7366847178014224225L;
+
 	@Override
 	public T save(T t) {
 		return getDao().save(t);

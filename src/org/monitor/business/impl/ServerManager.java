@@ -16,6 +16,7 @@ import org.monitor.models.Server;
 public class ServerManager extends GenericManager<Server> implements
 		IServerManager {
 
+	private static final long serialVersionUID = -2178077499309332597L;
 	private IServerDao serverDao;
 
 	@Override

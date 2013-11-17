@@ -1,5 +1,7 @@
 package org.monitor.dao;
 
+import java.io.Serializable;
+
 /**
  * Generic dao interface
  * 
@@ -7,7 +9,7 @@ package org.monitor.dao;
  * 
  * @param <T>
  */
-public interface IGenericDao<T> {
+public interface IGenericDao<T> extends Serializable {
 
 	public T save(T t);
 

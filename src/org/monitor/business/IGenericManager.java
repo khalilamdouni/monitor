@@ -1,5 +1,7 @@
 package org.monitor.business;
 
+import java.io.Serializable;
+
 import org.monitor.dao.IGenericDao;
 
 /**
@@ -9,7 +11,7 @@ import org.monitor.dao.IGenericDao;
  *
  * @param <T>
  */
-public interface IGenericManager<T> {
+public interface IGenericManager<T> extends Serializable {
 
 	public IGenericDao<T> getDao();
 

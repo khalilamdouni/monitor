@@ -1,5 +1,6 @@
 package org.monitor.viewmodels;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -18,8 +19,10 @@ import org.monitor.services.IISService;
  */
 @ManagedBean
 @ViewScoped
-public class ISMB {
-	
+public class ISMB implements Serializable {
+
+	private static final long serialVersionUID = -4096125912045650243L;
+
 	@ManagedProperty("#{isService}")
 	private IISService isService;
 	

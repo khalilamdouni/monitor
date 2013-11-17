@@ -16,13 +16,6 @@
 
 		<ace:dataTable id="deps" value="#{iSMB.departments}" var="department">
 			<ace:ajax event="editSubmit" render="facesMsgs" />
-			<ace:column id="id-dep" headerText="ID">
-				<ace:cellEditor>
-					<f:facet name="output">
-						<h:outputText id="idDep" value="#{department.id}" />
-					</f:facet>
-				</ace:cellEditor>
-			</ace:column>
 			<ace:column id="name-dep" headerText="Name">
 				<ace:cellEditor>
 					<f:facet name="output">

@@ -16,6 +16,7 @@ import org.monitor.models.Department;
 public class DepartmentManager extends GenericManager<Department> implements
 		IDepartmentManager {
 
+	private static final long serialVersionUID = -5284390943958862457L;
 	private IDepartmentDao departmentDao;
 
 	@Override
